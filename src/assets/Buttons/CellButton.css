@@ -1,0 +1,9 @@
+
+.correct {
+    background-color: green; /* or any color you prefer for correct answers */
+  }
+  
+.incorrect {
+  background-color: red; /* or any color you prefer for incorrect answers */
+}
+  
