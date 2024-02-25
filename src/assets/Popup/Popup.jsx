@@ -19,14 +19,9 @@ function Popup({ open, close, row, col, userGender, updateAnswers }) {
     const [incorrectAnswers, setIncorrectAnswers] = useState([]);
 
     useEffect(() => {
-        if (answerState === true) {
-            console.log('correct');
-            console.log(correctAnswers);
-        } else if (answerState === false) {
-            console.log('incorrect');
-            console.log(incorrectAnswers);
-        }
-    }, [answerState, input]); 
+        console.log(answerState ? 'correct' : 'incorrect');
+    }, [answerState, input]);
+     
 
     const handleInputChange = (e) => setInput(e.target.value);
 
@@ -46,7 +41,6 @@ function Popup({ open, close, row, col, userGender, updateAnswers }) {
     
     const updateArray = (Boolean, input)=> Boolean ? setCorrectAnswers(prevCorrectAnswers => [...prevCorrectAnswers, input]) : setIncorrectAnswers(prevIncorrectAnswers => [...prevIncorrectAnswers, input]);
     const handleCorrectAnswer = () => {
-        console.log(`handleCorrectAnswer: ${userGender}`);
         handleBackgroundColor('green');
         setAnswerState(true);
         updateArray(true, input);
@@ -54,7 +48,6 @@ function Popup({ open, close, row, col, userGender, updateAnswers }) {
     };
 
     const handleIncorrectAnswer = () => {
-        console.log(`handleIncorrectAnswer: ${userGender}`);
         handleBackgroundColor('red');
         setAnswerState(false);
         updateArray(false, input);
@@ -63,10 +56,7 @@ function Popup({ open, close, row, col, userGender, updateAnswers }) {
 
     const renderAnswerImage = (userGender, answer) => {
         const isCorrect = (answer === true);
-        console.log(`user answer:${answer}`);
-        console.log(`user gender image:${userGender}`);
-
-
+        
         return (
             isCorrect ?
                 (userGender === 'girl' ?

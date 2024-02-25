@@ -15,10 +15,8 @@ const WelcomePage = ({ onUserSubmit }) => {
   });
 
   const handleUserSubmit = () => {
-    if (userName && userGender) {
-      onUserSubmit(userName, userGender);
-    }
-  };
+    (userName && userGender)?onUserSubmit(userName, userGender):alert('יש למלא את כל השדות')
+    };
 
   const handleGenderButtonClick = (gender) => {
     setUserGender((prevGender) => (prevGender === gender ? '' : gender));
@@ -28,7 +26,7 @@ const WelcomePage = ({ onUserSubmit }) => {
       (gender === 'boy' ? 'boy' : 'girl')
       : 'initialPictureSetting',
     }));
-    console.log(`handleGenderButtonClick: ${userGender}`);
+
   };
 
   useEffect(() => {

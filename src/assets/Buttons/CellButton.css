@@ -1,9 +1,9 @@
 
 .correct {
-    background-color: green; /* or any color you prefer for correct answers */
+    background-color: green; 
   }
   
 .incorrect {
-  background-color: red; /* or any color you prefer for incorrect answers */
+  background-color: red;
 }
   

@@ -33,20 +33,14 @@ const MultiplicationTable = ({ userName, userGender }) => {
     };
 
     const updateAnswers = (row, col, isCorrect) => {
-        console.log(`Updating answers - Cells: row ${row}, col: ${col}, IsCorrect: ${isCorrect}`);
         const answer = { row, col };
-
-        if (isCorrect) {
-            handleStates('correctAnswers', [...state.correctAnswers, answer]);
-
-        } else {
-            handleStates('incorrectAnswers', [...state.incorrectAnswers, answer]);
-        }
+        const answerType = isCorrect ? 'correctAnswers' : 'incorrectAnswers';
+        handleStates(answerType, [...state[answerType], answer]);
     };
+    
 
     const isCellCorrect = (row, col) => {
         const correctCell = state.correctAnswers.some(answer => answer.row === row && answer.col === col);
-        console.log(`correct cell found ${correctCell}`);
         return correctCell;
     };
     const isCellIncorrect = (row, col) => {
@@ -56,51 +50,51 @@ const MultiplicationTable = ({ userName, userGender }) => {
     const getCellStatus = (row, col) => {
         const isCorrect = isCellCorrect(row, col);
         const isIncorrect = isCellIncorrect(row, col);
-
-        if (isCorrect) {
-            if (!state.incorrectAnswers.some(answer => answer.row === row && answer.col === col)) {
-                return 'correct';
-            }
-        } else if (isIncorrect) {
-            if (!state.correctAnswers.some(answer => answer.row === row && answer.col === col)) {
-                return 'incorrect';
-            }
-        } else {
-            return 'initial-button';
-        }
+    
+        return isCorrect
+            ? !state.incorrectAnswers.some(answer => answer.row === row && answer.col === col)
+                ? 'correct'
+                : undefined
+            : isIncorrect
+                ? !state.correctAnswers.some(answer => answer.row === row && answer.col === col)
+                    ? 'incorrect'
+                    : undefined
+                : 'initial-button';
     };
+    
     const getCellStatusColor = (row, col) => {
-
         const cellStatus = getCellStatus(row, col);
-
-        if (cellStatus === 'correct') {
-            return 'green';
-        } else if (cellStatus === 'incorrect') {
-            return 'red';
-        } else {
-            return 'initial-button';
-        }
+    
+        return cellStatus === 'correct'? 'green': cellStatus === 'incorrect'
+                ? 'red'
+                : 'initial-button';
     };
+    
     useEffect(() => {
-        if (state.correctAnswers.length === 0 && state.incorrectAnswers.length === 0) {
-            console.log('No answers yet');
-        } else if (state.correctAnswers.length === state.correctAnswers.length + 1 || state.incorrectAnswers.length === state.incorrectAnswers.length + 1) {
-            console.log(`new correctAnswers.length is: ${state.correctAnswers.length}`);
-            console.log(`new incorrectAnswers.length is: ${state.incorrectAnswers.length}`);
-        }
+        console.log(
+            state.correctAnswers.length === 0 && state.incorrectAnswers.length === 0
+                ? 'No answers yet'
+                : (state.correctAnswers.length === state.correctAnswers.length + 1 || state.incorrectAnswers.length === state.incorrectAnswers.length + 1)
+                    ? `new correctAnswers.length is: ${state.correctAnswers.length}\nnew incorrectAnswers.length is: ${state.incorrectAnswers.length}`
+                    : undefined
+        );
     }, [state.correctAnswers, state.incorrectAnswers]);
+    
 
     const openPopup = (row, col) => {
         const cellAlreadyAnswered =
             state.correctAnswers.some(answer => answer.row === row && answer.col === col) ||
             state.incorrectAnswers.some(answer => answer.row === row && answer.col === col);
-
-        if (!cellAlreadyAnswered) {
-            handleStates('guessingCell', { row, col });
-            handleStates('openPopup', true);
-            handleStates('userGender', userGender);
-        }
+    
+        !cellAlreadyAnswered
+            ? (
+                handleStates('guessingCell', { row, col }),
+                handleStates('openPopup', true),
+                handleStates('userGender', userGender)
+            )
+            : alert('לא ניתן לענות על שאלה יותר מפעם אחת');
     };
+    
     const closePopup = () => {
         handleStates('guessingCell', null);
         handleStates('openPopup', false);
