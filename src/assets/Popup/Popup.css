@@ -17,7 +17,7 @@
   transform: translate(-50%, -50%);
   z-index: 1; 
   text-align: center;
-  padding: 20px 20px;
+  padding: 50px;
   border: 2px solid black;
   border-radius: 20px;
   background-color: green;
@@ -33,9 +33,13 @@
   font-family:"Fredoka", sans-serif;
 
 }
+.rendered-image{
+  height: 200px;
+  width: auto;
+}
 .red {
   position: absolute;
-  padding: 20px 20px;
+  padding: 50;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -67,7 +71,7 @@
 .input {
   margin: 10px;
 }
-img {
+.child-respond-img {
   height: 250px;
   width: auto;
   border: 5px solid transparent;
@@ -79,7 +83,7 @@ img {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 15px;
   direction: rtl;
 
 }
@@ -96,10 +100,13 @@ img {
 
 }
 .answerFeedback{
-  display:flex;
-  flex-direction: column;
-  height: 400px;
-  width: auto;
   direction: rtl;
   font-family:"Fredoka", sans-serif;
+  height: 380px;
+  width: auto;
+}
+.answerFeedback img{
+
+  height: 250px;
+  width: auto;
 }

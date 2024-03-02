@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import './MultiplicationTableContent.css'
 
 const MultiplicationTableContent = ({
     openPopup,
@@ -10,7 +11,7 @@ const MultiplicationTableContent = ({
     isCellIncorrect,
 }) => {
     const renderTable = () => (
-        <table>
+        <table className='table-cells'>
             <thead>
                 <tr>
                     <th>
@@ -41,7 +42,7 @@ const MultiplicationTableContent = ({
     );
 
     return (
-        <div className="table-div">
+        <div>
             {renderTable()}
         </div>
     );

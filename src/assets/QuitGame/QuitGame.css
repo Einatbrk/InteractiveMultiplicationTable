@@ -1,0 +1,8 @@
+.game-ending-prompt{
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  font-family:monospace;
+  font-size: large;
+}
+

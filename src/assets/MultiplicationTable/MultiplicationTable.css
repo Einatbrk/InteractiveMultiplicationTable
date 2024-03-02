@@ -1,72 +1,51 @@
-.multiplication-container {
-  text-align: center;
-  display: flex;
+.Multiplication-main-container{
+  display:flex;
   flex-direction: column;
-  justify-content: center;
-  
-}
-.main-game-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   background-image:url('/tableBackground.jpg') ;
   background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }
-td{
-  text-align: center;
-  padding: 5px 15px;
-  font-size: large;
-  font-weight: bold;
-  font-family: "Fredoka", sans-serif;
-
-}
-th{
-  text-align: center;
-  padding: 10px;
-  font-size: large;
-  font-family: "Fredoka", sans-serif;
-
-}
-.initial-button {
-  padding: 7px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: medium;
-  border: 1px solid transparent;
-  border-radius: 25%;
-  font-family: "Fredoka", sans-serif;
-}
-
-
 .user-name-label{
   font-family: "Rubik Scribble", system-ui;
-  font-size: 25px;
+  font-size: 40px;
   font-weight: bold;
   color: black;
   text-align: center;
   padding-top: 20px;
   direction: rtl;
+
 }
-.table-div{
-  display: grid;
-  direction: ltr;
-  grid-column: auto;
-  gap: 20px;
+.components-container{
+  display:flex;
+  flex-direction:row;
   justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+
 }
-.reset-button{
-  background-color: #cf58dc;
-  color:black;
-  border: 1px solid #cf58dc;
-  cursor: pointer;
-  font-size: medium;
-  border-radius: 15px;
-  text-align: center;
-  font-family:"Fredoka", sans-serif;
+.multiplication-table-container{
+  width: fit-content;
+  height: auto;
+  padding:50px;
+  
 }
+.table-content-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  direction: rtl;
+}
+.main-score-board{
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  width:20vw;
+  height: auto;
+  margin: 0;
+  
+}
+
 
 .popup {
   padding: 20px;

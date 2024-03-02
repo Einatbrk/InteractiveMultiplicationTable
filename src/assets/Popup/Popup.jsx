@@ -6,7 +6,7 @@ import IncorrectBoyImg from '/wrongBoy.JPG?url';
 import CorrectBoyImg from '/correctBoy.JPG?url';
 import IncorrectGirlImg from '/wrongGirl.jpg?url';
 import CorrectGirlImg from '/correctGirl.jpg?url';
-import {ImgButton} from '../Buttons/ImgButton';
+import { ImgButton } from '../Buttons/ImgButton';
 import SubmitImg from '/submit.jpg?url';
 import BackImg from '/backButton.jpg?url';
 
@@ -18,49 +18,44 @@ function Popup({ open, close, row, col, userGender, updateAnswers }) {
     const [correctAnswers, setCorrectAnswers] = useState([]);
     const [incorrectAnswers, setIncorrectAnswers] = useState([]);
 
-    useEffect(() => {
-        console.log(answerState ? 'correct' : 'incorrect');
-    }, [answerState, input]);
-     
-
     const handleInputChange = (e) => setInput(e.target.value);
 
     if (!open || isNaN(row) || isNaN(col)) {
         return null;
     }
     const handleBackgroundColor = (newBackgroundColor) => setBackgroundColor(newBackgroundColor);
-    
+
 
     const handleSubmit = () => {
         const userAnswer = parseInt(input, 10);
         userAnswer === correctAnswer ? handleCorrectAnswer() : handleIncorrectAnswer();
         setInput("");
     };
-    
+
     const correctAnswer = (row + 1) * (col + 1);
-    
-    const updateArray = (Boolean, input)=> Boolean ? setCorrectAnswers(prevCorrectAnswers => [...prevCorrectAnswers, input]) : setIncorrectAnswers(prevIncorrectAnswers => [...prevIncorrectAnswers, input]);
+
+    const updateArray = (Boolean, input) => Boolean ? setCorrectAnswers(prevCorrectAnswers => [...prevCorrectAnswers, input]) : setIncorrectAnswers(prevIncorrectAnswers => [...prevIncorrectAnswers, input]);
     const handleCorrectAnswer = () => {
         handleBackgroundColor('green');
         setAnswerState(true);
         updateArray(true, input);
-        updateAnswers(row,col,true);
+        updateAnswers(row, col, true);
     };
 
     const handleIncorrectAnswer = () => {
         handleBackgroundColor('red');
         setAnswerState(false);
         updateArray(false, input);
-        updateAnswers(row,col,false);
+        updateAnswers(row, col, false);
     };
 
-    const renderAnswerImage = (userGender, answer) => {
+    const renderAnswerImage = (userGender, answer, className) => {
         const isCorrect = (answer === true);
-        
+
         return (
             isCorrect ?
                 (userGender === 'girl' ?
-                    <img src={CorrectGirlImg} alt="correct"/>
+                    <img src={CorrectGirlImg} alt="correct" />
                     :
                     <img src={CorrectBoyImg} alt="correct" />)
                 :
@@ -69,7 +64,7 @@ function Popup({ open, close, row, col, userGender, updateAnswers }) {
                     :
                     <img src={IncorrectBoyImg} alt="incorrect" />)
         );
-        
+
     };
 
     const handleClose = () => {
@@ -104,8 +99,9 @@ function Popup({ open, close, row, col, userGender, updateAnswers }) {
             <div className="answerFeedback">
                 <h4>כל הכבוד!</h4>
                 <p>התשובה הנכונה היא: {correctAnswer}</p>
-                {renderAnswerImage(userGender, true)}
-
+                <div className='rendered-image'>
+                    {renderAnswerImage(userGender, true, 'rendered-image')}
+                </div>
             </div>
             <div className="close-button-container">
                 <button className="close-button" onClick={handleClose}>סגירה</button>
@@ -116,10 +112,13 @@ function Popup({ open, close, row, col, userGender, updateAnswers }) {
     const renderInCorrectAnswer = () => (
         <>
             <div className="answerFeedback">
-                <h4>אוי לא...</h4>
-                <p>התשובה הנכונה היא: {correctAnswer}</p>
-                <span>בהצלחה בפעם הבאה</span>
-                {renderAnswerImage(userGender, false)}
+                <div>
+                    <h4>אוי לא...</h4>
+                    <p>התשובה הנכונה היא: {correctAnswer}</p>
+                    <span>בהצלחה בפעם הבאה</span>
+                </div>
+                <div>
+                    {renderAnswerImage(userGender, false, 'rendered-image')}</div>
             </div>
             <div className="close-button-container">
                 <button className="close-button" onClick={handleClose}>סגירה</button>

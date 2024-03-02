@@ -1,0 +1,71 @@
+img.crown {
+    width: 200px;
+    height: auto;
+}
+.crown{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.winners-table {
+    width: 100%;
+    border-collapse: collapse;
+    justify-content: center;
+    justify-self: center;
+    
+}
+
+.winners-table th,
+.winners-table td {
+    font-family:"Fredoka", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding-top: 20px;
+    direction: rtl;
+    border: 5px solid gold;
+    margin-left: 20px;
+}
+.winning-board-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.winners-table th {
+    font-family:"Fredoka", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding-top: 20px;
+    direction: rtl;
+    border: 5px solid gold;
+    margin-left: 20px;
+    
+}
+
+.winners-table tbody tr:nth-child(even) {
+    font-family:"Fredoka", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding-top: 20px;
+    direction: rtl;
+    border: 5px solid yellow;
+    margin-left: 20px;
+}
+
+.winners-table tbody tr:hover {
+    font-family:"Fredoka", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding-top: 20px;
+    direction: rtl;
+    border: 5px solid yellow;
+    margin-left: 20px;
+}
