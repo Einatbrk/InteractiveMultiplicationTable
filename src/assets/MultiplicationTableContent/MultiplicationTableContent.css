@@ -1,0 +1,41 @@
+.initial-button {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    font-size: medium;
+    border: 1px solid transparent;
+    border-radius: 25%;
+    font-family: "Fredoka", sans-serif;
+    padding: 10px 20px;
+    width: 50px;
+    height: 40px;
+    display:flex;
+    justify-content: center;
+}
+.table-cells td{
+    text-align: center;
+    font-size: large;
+    font-family: "Fredoka", sans-serif;
+}
+.table-cells th{
+    font-size: large;
+    font-family: "Fredoka", sans-serif;
+    padding-bottom: 10px;
+}
+.table-cells tr td:first-child{
+    font-size: large;
+    font-family: "Fredoka", sans-serif;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.reset-button {
+    background-color: #cf58dc;
+    color: black;
+    border: 1px solid #cf58dc;
+    cursor: pointer;
+    font-size: medium;
+    border-radius: 15px;
+    text-align: center;
+    font-family: "Fredoka", sans-serif;
+}

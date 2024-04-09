@@ -1,0 +1,10 @@
+.player-score-grade{
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+    font-family: "Rubik Dirt", system-ui;
+    direction: rtl;
+    border: 5px solid #cf58dc;
+    border-radius: 10px;
+    margin-top: 15px;
+}

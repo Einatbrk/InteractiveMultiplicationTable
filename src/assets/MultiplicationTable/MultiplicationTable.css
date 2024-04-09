@@ -1,0 +1,56 @@
+.Multiplication-main-container{
+  display:flex;
+  flex-direction: column;
+  background-image:url('/tableBackground.jpg') ;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+.user-name-label{
+  font-family: "Rubik Scribble", system-ui;
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  padding-top: 20px;
+  direction: rtl;
+
+}
+.components-container{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  justify-content: space-evenly;
+
+}
+.multiplication-table-container{
+  width: fit-content;
+  height: auto;
+  padding:50px;
+  
+}
+.table-content-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  direction: rtl;
+}
+.main-score-board{
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  width:20vw;
+  height: auto;
+  margin: 0;
+  
+}
+
+
+.popup {
+  padding: 20px;
+  text-align: center;
+}
+
+
+
